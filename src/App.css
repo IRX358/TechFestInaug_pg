@@ -161,6 +161,34 @@ body {
   object-fit: cover; /* Add this: makes the image fill the container without distortion */
 }
 
+.gif-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; 
+  background-color: var(--dark-slate); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100; 
+  opacity: 1;
+  animation: gifFadeOut 1s ease-out forwards; 
+  animation-delay: var(--gif-duration);
+  pointer-events: none; 
+}
+
+.gif-transition-overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+@keyframes gifFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; visibility: hidden; }
+}
+
 /* --- Keyframes --- */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
