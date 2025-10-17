@@ -1,11 +1,13 @@
 import React from 'react';
+import main from '../assets/imgs/main.jpg';
+import PU from '../assets/imgs/PUlogo.jpg';
 
 const MainEventPage = () => {
   return (
     <div className="page-container main-event-page">
       <div className="main-page-layout">
         <div className="content-column"><img 
-            src="/imgs/PUlogo.jpg" 
+            src={PU}
             alt="PU Logo" 
             className="logo-placeholder" 
           />
@@ -18,7 +20,7 @@ const MainEventPage = () => {
         <div className="image-column">
          
             <img 
-            src="/imgs/main.jpg" 
+            src={main}
             alt="IEEE Tech Week Event" 
             className="main-image-placeholder" 
           />
