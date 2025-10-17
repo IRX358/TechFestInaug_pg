@@ -14,7 +14,7 @@ const MainEventPage = () => {
           <p className="subheading">SOCSE & SOISE presents</p>
           <h1 className="main-heading">IEEE Tech Week 2025</h1>
           <p className="quote">
-            "Innovation distinguishes between a leader and a follower."
+            "Innovation for better tomorrow"
           </p>
         </div>
         <div className="image-column">
