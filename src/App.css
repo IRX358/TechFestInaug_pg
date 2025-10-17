@@ -1,0 +1,195 @@
+/* Import elegant fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;700&display=swap');
+
+/* --- Root Variables --- */
+:root {
+  --golden-shine: #FFD700;
+  --dark-slate: #1c1c1d; /* Darker base */
+  --deep-indigo: #2c3e50; /* A very dark, subtle blue/gray */
+  --light-text: #E0E0E0;
+}
+
+/* --- Base Body Styles --- */
+body {
+  background-color: var(--dark-slate);
+  color: var(--light-text);
+  font-family: 'Lora', serif; /* Lora as the base font */
+  margin: 0;
+  overflow: hidden;
+}
+
+/* --- Page Containers & Transitions --- */
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box; /* Ensures padding is included in height/width */
+}
+
+/* Landing Page Specifics */
+.landing-page {
+  animation: fadeIn 1s ease-in-out;
+}
+.landing-page.fading-out {
+  animation: fadeOut 0.8s ease-in-out forwards;
+}
+
+/* Main Page Specifics */
+.main-event-page {
+  background: linear-gradient(135deg, var(--deep-indigo), var(--dark-slate));
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in-out 0.8s forwards; /* Delay to start after landing page fades */
+}
+
+/* --- Landing Page Content --- */
+.landing-page .title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--light-text);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.inaugurate-btn {
+  /* No changes needed from the previous golden button, it's perfect */
+  position: relative;
+  padding: 1rem 3.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark-slate);
+  background-color: var(--golden-shine);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 0 15px var(--golden-shine), 0 0 30px rgba(255, 215, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+.inaugurate-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px var(--golden-shine), 0 0 40px rgba(255, 215, 0, 0.7);
+}
+.inaugurate-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 30%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: skewX(-30deg);
+  animation: shine 2s infinite;
+}
+
+/* --- Main Page Layout (Two-Column) --- */
+.main-page-layout {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content-column {
+  flex: 1.2; /* Give more space to text */
+  padding-right: 3rem;
+  text-align: left;
+}
+.content-column > * {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.image-column {
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- Main Page Content Elements --- */
+.logo-placeholder {
+  width: 220px;
+  height: 75px;
+  background-color: rgba(255, 255, 255, 0.1); /* This now acts as a fallback */
+  border-radius: 4px;
+  animation-delay: 1.2s !important;
+  object-fit:cover; /* Add this: ensures the whole logo is visible */
+}
+
+.subheading {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--light-text);
+  margin-bottom: 1rem;
+  animation-delay: 1.4s !important;
+}
+
+.main-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: var(--golden-shine);
+  margin-bottom: 2rem;
+  line-height: 1.1;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+  animation-delay: 1.6s !important;
+}
+
+.quote {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--light-text);
+  opacity: 0.8;
+  border-left: 3px solid var(--golden-shine);
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+  animation-delay: 1.8s !important;
+}
+
+.main-image-placeholder {
+  width: 350px;
+  height: 570px;
+  background-color: rgba(255, 255, 255, 0.1); /* This now acts as a fallback */
+  border-radius: 15px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 2s forwards;
+  object-fit: cover; /* Add this: makes the image fill the container without distortion */
+}
+
+/* --- Keyframes --- */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes shine {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+  .main-page-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+  .content-column {
+    padding-right: 0;
+    text-align: center;
+    order: 2; /* Content comes after image */
+  }
+  .image-column {
+    margin-bottom: 3rem;
+    order: 1;
+  }
+  .main-heading {
+    font-size: 3rem;
+  }
+}
