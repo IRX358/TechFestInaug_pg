@@ -1,11 +1,10 @@
-/* Import elegant fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;700&display=swap');
 
-/* --- Root Variables --- */
 :root {
   --golden-shine: #FFD700;
-  --dark-slate: #1c1c1d; /* Darker base */
-  --deep-indigo: #2c3e50; /* A very dark, subtle blue/gray */
+  --dark-slate: #1c1c1d; 
+  --deep-indigo: #2c3e50; 
   --light-text: #E0E0E0;
 }
 
@@ -13,9 +12,16 @@
 body {
   background-color: var(--dark-slate);
   color: var(--light-text);
-  font-family: 'Lora', serif; /* Lora as the base font */
+  font-family: 'Lora', serif; 
   margin: 0;
   overflow: hidden;
+}
+
+.landing-container {
+  animation: fadeIn 1s ease-in-out;
+}
+.landing-container.fading-out {
+  animation: fadeOut 0.8s ease-in-out forwards;
 }
 
 /* --- Page Containers & Transitions --- */
@@ -26,7 +32,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  box-sizing: border-box; /* Ensures padding is included in height/width */
+  box-sizing: border-box; 
 }
 
 /* Landing Page Specifics */
@@ -41,9 +47,8 @@ body {
 .main-event-page {
   background: linear-gradient(135deg, var(--deep-indigo), var(--dark-slate));
   opacity: 0;
-  animation: fadeIn 0.8s ease-in-out 0.8s forwards; /* Delay to start after landing page fades */
+  animation: fadeIn 0.8s ease-in-out 0.8s forwards; 
 }
-
 /* --- Landing Page Content --- */
 .landing-page .title {
   font-family: 'Playfair Display', serif;
@@ -55,7 +60,6 @@ body {
 }
 
 .inaugurate-btn {
-  /* No changes needed from the previous golden button, it's perfect */
   position: relative;
   padding: 1rem 3.5rem;
   font-size: 1.5rem;
@@ -117,7 +121,7 @@ body {
   height: 75px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
-  animation-delay: 1.2s !important;
+  animation-delay: 0.5s !important;
   object-fit:cover; 
 }
 .logo-placeholder2 {
@@ -128,12 +132,13 @@ body {
   animation-delay: 1.2s !important;
   object-fit:cover; 
 }
-
+.gap {
+  margin-left: 20px;
+}
 .subheading {
   font-size: 1.5rem;
   font-weight: 400;
   color: var(--light-text);
-  margin-bottom: 10px;
   animation-delay: 1.4s !important;
 }
 
@@ -142,13 +147,9 @@ body {
   font-size: 4.5rem;
   font-weight: 700;
   color: var(--golden-shine);
-  margin-bottom: 10px;
   line-height: 1.1;
   text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
   animation-delay: 1.6s !important;
-}
-.gap{
-  margin-left: 20px;
 }
 .quote {
   font-size: 1.1rem;
@@ -160,46 +161,38 @@ body {
   margin-bottom: 2rem;
   animation-delay: 1.8s !important;
 }
-
 .main-image-placeholder {
+  position: relative;
+  overflow: hidden;
   width: 650px;
-  height: auto;
-  background-color: rgba(255, 255, 255, 0.1); 
+  height: 250px;
+  aspect-ratio: 4/3; 
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   opacity: 0;
-  animation: fadeInUp 0.8s ease-out 2s forwards;
-  object-fit: cover; 
+  animation: fadeInUp 0.8s ease-out 0.8s forwards;
 }
 
-.gif-transition-overlay {
-  position: fixed;
+.reveal-gif,
+.revealed-image {
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh; 
-  background-color: var(--dark-slate); 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100; 
-  opacity: 1;
-  animation: gifFadeOut 1s ease-out forwards; 
-  animation-delay: var(--gif-duration);
-  pointer-events: none; 
-}
-
-.gif-transition-overlay img {
   width: 100%;
   height: 100%;
   object-fit: cover; 
 }
 
+.revealed-image {
+  animation: fadeIn 0.5s ease-out;
+}
+
+
+/* --- Keyframes --- */
 @keyframes gifFadeOut {
   from { opacity: 1; }
   to { opacity: 0; visibility: hidden; }
 }
-
-/* --- Keyframes --- */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
 @keyframes fadeInUp {
@@ -217,15 +210,23 @@ body {
   .main-page-layout {
     flex-direction: column;
     text-align: center;
+    max-width: 100%; 
   }
   .content-column {
     padding-right: 0;
     text-align: center;
-    order: 2; /* Content comes after image */
+    order: 2;
   }
   .image-column {
     margin-bottom: 3rem;
     order: 1;
+    padding-left: 0; 
+  }
+  .main-image-placeholder {
+    width: 90vw; 
+    height: auto;
+    max-height: 400px; 
+    aspect-ratio: 4/3; 
   }
   .main-heading {
     font-size: 3rem;
