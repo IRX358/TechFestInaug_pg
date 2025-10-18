@@ -95,8 +95,8 @@ body {
 }
 
 .content-column {
-  flex: 1.2; /* Give more space to text */
-  padding-right: 3rem;
+  flex: 1.2; 
+  padding-right: 2rem;
   text-align: left;
 }
 .content-column > * {
@@ -115,17 +115,25 @@ body {
 .logo-placeholder {
   width: 220px;
   height: 75px;
-  background-color: rgba(255, 255, 255, 0.1); /* This now acts as a fallback */
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   animation-delay: 1.2s !important;
-  object-fit:cover; /* Add this: ensures the whole logo is visible */
+  object-fit:cover; 
+}
+.logo-placeholder2 {
+  width: 180px;
+  height: 67px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  animation-delay: 1.2s !important;
+  object-fit:cover; 
 }
 
 .subheading {
   font-size: 1.5rem;
   font-weight: 400;
   color: var(--light-text);
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   animation-delay: 1.4s !important;
 }
 
@@ -134,12 +142,14 @@ body {
   font-size: 4.5rem;
   font-weight: 700;
   color: var(--golden-shine);
-  margin-bottom: 2rem;
+  margin-bottom: 10px;
   line-height: 1.1;
   text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
   animation-delay: 1.6s !important;
 }
-
+.gap{
+  margin-left: 20px;
+}
 .quote {
   font-size: 1.1rem;
   font-style: italic;
@@ -152,13 +162,13 @@ body {
 }
 
 .main-image-placeholder {
-  width: 350px;
-  height: 570px;
-  background-color: rgba(255, 255, 255, 0.1); /* This now acts as a fallback */
+  width: 650px;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.1); 
   border-radius: 15px;
   opacity: 0;
   animation: fadeInUp 0.8s ease-out 2s forwards;
-  object-fit: cover; /* Add this: makes the image fill the container without distortion */
+  object-fit: cover; 
 }
 
 .gif-transition-overlay {
