@@ -1,25 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react'; 
 import LandingPage from './components/landingpg';
 import MainEventPage from './components/maineventpage';
 import './App.css';
+import bgMusic from './assets/background.mp3'; 
 
 function App() {
-  const [pageState, setPageState] = useState('landing'); // 'landing', 'fading', 'main'
+  const [pageState, setPageState] = useState('landing'); 
+
+  const audio = useMemo(() => {
+    const a = new Audio(bgMusic);
+    a.volume = 0.8; 
+    a.loop = true;   
+    return a;
+  }, []); 
 
   const handleInaugurate = () => {
-    setPageState('fading'); // Trigger the fade-out of the landing page
+    audio.play().catch(e => console.error("Audio play failed:", e)); 
+    setPageState('fading'); 
   };
 
   useEffect(() => {
     if (pageState === 'fading') {
       const timer = setTimeout(() => {
-        setPageState('main'); // Switch to main page after animation
-      }, 800); // Duration of the fadeOut animation
+        setPageState('main'); 
+      }, 800); 
       return () => clearTimeout(timer);
     }
   }, [pageState]);
 
-  // We use CSS classes on a container div to control the fade
+  useEffect(() => {
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, [audio]);
+
   return (
     <main>
       {pageState !== 'main' && (
