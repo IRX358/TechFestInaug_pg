@@ -9,7 +9,7 @@ function App() {
 
   const audio = useMemo(() => {
     const a = new Audio(bgMusic);
-    a.volume = 0.8; 
+    a.volume = 0.7; 
     a.loop = true;   
     return a;
   }, []); 
