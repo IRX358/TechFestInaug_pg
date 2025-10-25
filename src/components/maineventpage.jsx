@@ -23,7 +23,7 @@ const MainEventPage = () => {
       <div className="main-page-layout">
         <div className="content-column">
           <img src={PU} alt="PU Logo" className="logo-placeholder" />
-          <p className="subheading">SOCSE & SOISE presents</p>
+          <p className="subheading">SOCSE & SOIS presents</p>
           <h1 className="main-heading">IEEE Tech Week 2025</h1>
           <p className="quote">"Innovation for better tomorrow"</p>
           <img src={ieeelg} alt="IEEE Logo" className="logo-placeholder2" />
