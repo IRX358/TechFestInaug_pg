@@ -8,7 +8,7 @@ const LandingPage = ({ onInaugurate }) => {
     <div className="page-container landing-page">
       <img src={PU} alt="PU Logo" className="logo-placeholder-top" />
       <div className="landing-main-content">
-        <img src={ieeebg} alt="IEEE Bangalore Logo" className="logo-placeholder-side left" />
+        <img src={ieeelg} alt="IEEE Bangalore Logo" className="logo-placeholder-side left" />
         <div className="landing-text-button">
           <h1 className="title">
             Let's enter into the IEEE Tech Week
@@ -17,7 +17,7 @@ const LandingPage = ({ onInaugurate }) => {
             Inaugurate
           </button>
         </div>
-        <img src={ieeelg} alt="IEEE Bangalore Logo" className="logo-placeholder-side right" />
+        <img src={ieeebg} alt="IEEE Bangalore Logo" className="logo-placeholder-side right" />
       </div>
     </div>
   );

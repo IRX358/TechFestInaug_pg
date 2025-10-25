@@ -4,6 +4,7 @@ import PU from '../assets/imgs/PUlogo.jpg';
 import ieeebg from '../assets/imgs/ieeebang.jpg';
 import ieeelg from '../assets/imgs/ieeelogo.jpg';
 import transitionGif from '../assets/imgs/curtain-open.gif'; 
+import StardustOverlay from './StardustOverlay';
 
 // --- 1. Import your new looping GIF ---
 import loopingAnim from '../assets/r1eaction.gif';
@@ -25,6 +26,18 @@ const MainEventPage = () => {
       
       {/* --- 2. Add the new GIF here --- */}
       {/* It will only appear AFTER the curtain is done */}
+      {/* --- 2. Add the new GIF here --- */}
+      {/* It will only appear AFTER the curtain is done */}
+      {isImageRevealed && (
+        <>
+          <StardustOverlay /> {/* <-- ADD THIS LINE */}
+          <img 
+            src={loopingAnim} 
+            alt="Looping animation" 
+            className="looping-gif-overlay" 
+          />
+        </>
+      )}
       {isImageRevealed && (
        <img 
             src={loopingAnim} 
@@ -38,7 +51,7 @@ const MainEventPage = () => {
       <div className="main-page-layout">
         <div className="content-column">
           <img src={PU} alt="PU Logo" className="logo-placeholder" />
-          <p className="subheading">PSCSE & PSIS presents</p>
+          <p className="subheading">PSCS & PSIS Presents</p>
           <h1 className="main-heading">IEEE Tech Week 2025</h1>
           <p className="quote">"Innovation for better tomorrow"</p>
           <img src={ieeelg} alt="IEEE Logo" className="logo-placeholder2" />

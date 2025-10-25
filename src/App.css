@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;700&display=swap');
 
 :root {
@@ -30,7 +29,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   padding: 2rem;
   box-sizing: border-box; 
 }
@@ -48,7 +47,71 @@ body {
   opacity: 0;
   animation: fadeIn 0.8s ease-in-out 0.8s forwards; 
 }
+
 /* --- Landing Page Content --- */
+
+/* Style for the top logo */
+.logo-placeholder-top {
+  width: 260px; 
+  height: 89px; 
+  object-fit: cover;
+  margin-bottom: 4rem; /* Increased separation */
+  border-radius: 6px; 
+  opacity: 0; 
+  animation: fadeInUp 0.8s ease-out 0.2s forwards; 
+  /* Enhanced "plaque" look */
+  border: 2px solid rgba(255, 215, 0, 0.2); /* Subtle golden border */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Lifted effect */
+  transition: all 0.3s ease-in-out;
+}
+.logo-placeholder-top:hover {
+  transform: scale(1.03);
+  border-color: rgba(255, 215, 0, 0.7);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Container for the middle row (left logo, text/button, right logo) */
+.landing-main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1000px; 
+}
+
+/* Style for the side logos */
+.logo-placeholder-side {
+  width: 180px;
+  height: 67px;
+  object-fit: cover;
+  border-radius: 6px; 
+  opacity: 0; 
+  animation: fadeInUp 0.8s ease-out 0.4s forwards, pulse-subtle 2.5s infinite 1.6s;
+  border: 2px solid rgba(255, 215, 0, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+.logo-placeholder-side:hover {
+  transform: scale(1.05);
+  border-color: var(--golden-shine); /* Glows on hover */
+  box-shadow: 0 0 15px var(--golden-shine);
+}
+
+.logo-placeholder-side.left {
+  margin-right: 3rem;
+}
+
+.logo-placeholder-side.right {
+  margin-left: 3rem;
+}
+
+/* Wrapper for the central text and button */
+.landing-text-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .landing-page .title {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
@@ -72,10 +135,8 @@ body {
   cursor: pointer;
   overflow: hidden;
   box-shadow: 0 0 15px var(--golden-shine), 0 0 30px rgba(255, 215, 0, 0.5);
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 0 15px var(--golden-shine), 0 0 30px rgba(255, 215, 0, 0.5);
-  opacity: 0; /* ADD THIS LINE */
-  animation: fadeInUp 0.8s ease-out 0.8s forwards; /* ADD THIS LINE */
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.8s forwards, pulse 2.5s infinite 1.8s;
   transition: all 0.3s ease-in-out;
 }
 .inaugurate-btn:hover {
@@ -193,85 +254,80 @@ body {
 .revealed-image {
   animation: fadeIn 0.5s ease-out;
 }
-/* Style for the top logo */
-.logo-placeholder-top {
-  width: 260px; 
-  height: 89px; 
-  object-fit: cover;
-  /* margin-bottom is removed, space-evenly will handle it */
-  border-radius: 6px; 
-  opacity: 0; 
-  animation: fadeInUp 0.8s ease-out 0.2s forwards; 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Adds a subtle lift */
-}
 
-/* Container for the middle row (left logo, text/button, right logo) */
-.landing-main-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 1000px; 
-  padding: 2.5rem; /* Add internal padding */
-  box-sizing: border-box;
-  /* This groups the elements into one "panel" */
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Style for the side logos */
-.logo-placeholder-side {
-  width: 180px;
-  height: 67px;
-  object-fit: cover;
-  border-radius: 6px; 
-  opacity: 0; /* Start hidden */
-  animation: fadeInUp 0.8s ease-out 0.4s forwards; /* Staggered animation (after top logo) */
-}
-
-.logo-placeholder-side.left {
-  margin-right: 3rem;
-}
-
-.logo-placeholder-side.right {
-  margin-left: 3rem;
-}
-
-.page-container {
-    justify-content: center; /* Go back to centering on mobile */
-  }
-
-  .landing-main-content {
-    background: none; /* Remove the panel background */
-    border: none; /* Remove the panel border */
-    padding: 0; /* Remove the panel padding */
-  }
-
-  .logo-placeholder-top {
-    box-shadow: none; /* Remove the shadow on mobile */
-  }
-  /* --- New class for the looping top-right GIF --- */
-/* --- New class for the looping overlay GIF --- */
+/* --- Looping GIF Overlay --- */
 .looping-gif-overlay {
-  position: fixed; /* Fixes it to the viewport */
-  bottom: 0;       /* Aligns to the bottom */
-  right: -30px;        /* Aligns to the right */
-  width: 500px;    /* You can adjust this size */
+  position: fixed; 
+  bottom: 0;       
+  right: -30px;    
+  width: 500px;    
   height: auto;
-  z-index: 1000;   /* Ensures it's on top of everything */
-  
-  /* It will use the existing 'fadeIn' animation */
+  z-index: 1000;   
   animation: fadeIn 1s ease-out forwards;
 }
-/* Wrapper for the central text and button */
-.landing-text-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+/* --- Stardust Shower Effect --- */
+.stardust-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999; /* Just behind the looping GIF, but over the page */
+  overflow: hidden;
+  pointer-events: none; /* Allows clicking through it */
+}
+
+.stardust-speck {
+  position: absolute;
+  top: -10px; /* Start just off-screen */
+  width: 5px; 
+  height: 5px; 
+  background-color: var(--golden-shine);
+  border-radius: 50%;
+  
+  /* --- Made the glow much stronger --- */
+  box-shadow: 0 0 8px var(--golden-shine), 
+              0 0 15px var(--golden-shine), 
+              0 0 15px var(--golden-shine), 
+              0 0 20px rgba(255, 215, 0, 0.7);
+  
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: 5;
+  opacity: 0;
 }
 
 /* --- Keyframes --- */
+@keyframes fall {
+  from {
+    transform: translateY(0vh);
+    opacity: 0;
+  }
+  10% {
+    /* Fade in quickly */
+    opacity: 1;
+  }
+  to {
+    /* Fall all the way down the screen */
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 15px var(--golden-shine), 0 0 30px rgba(255, 215, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px var(--golden-shine), 0 0 45px rgba(255, 215, 0, 0.7);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 15px var(--golden-shine), 0 0 30px rgba(255, 215, 0, 0.5);
+  }
+}
 @keyframes gifFadeOut {
   from { opacity: 1; }
   to { opacity: 0; visibility: hidden; }
@@ -287,31 +343,49 @@ body {
   50% { left: 100%; }
   100% { left: 100%; }
 }
-
+@keyframes pulse-subtle {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-color: rgba(255, 215, 0, 0.2);
+  }
+  50% {
+    transform: scale(1.0003);
+    box-shadow: 0 0 15px var(--golden-shine), 0 0 25px rgba(255, 215, 0, 0.4);
+    border-color: rgba(255, 215, 0, 0.7);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-color: rgba(255, 215, 0, 0.2);
+  }
+}
 /* --- Responsive Design --- */
 @media (max-width: 900px) {
-  /* Responsive Landing Page */
+
+  /* Landing Page Responsive */
   .landing-main-content {
     flex-direction: column;
+  }
+
+  .logo-placeholder-top {
+    /* Overrides for mobile */
+    width: 220px; 
+    height: 75px; 
+    margin-bottom: 2rem; 
+    margin-top: 0;
+    box-shadow: none; 
   }
 
   .logo-placeholder-side {
     display: none; /* Hide side logos on smaller screens */
   }
 
-/* Style for the top logo */
-.logo-placeholder-top {
-  width: 260px; /* Enlarged from 220px */
-  height: 89px; /* Maintained aspect ratio */
-  object-fit: cover;
-  margin-bottom: 2rem; /* Space below the top logo */
-  margin-top: -1.5rem; /* Moved it up a bit */
-  border-radius: 6px; /* Added border-radius */
-}
-
   .landing-page .title {
     font-size: 2rem; /* Smaller title */
   }
+
+  /* Main Page Responsive */
   .main-page-layout {
     flex-direction: column;
     text-align: center;
@@ -336,8 +410,9 @@ body {
   .main-heading {
     font-size: 3rem;
   }
+  
+  /* GIF Overlay Responsive */
   .looping-gif-overlay {
     width: 100px; /* A bit smaller on mobile */
-    /* bottom: 0 and right: 0 are inherited */
   }
 }
