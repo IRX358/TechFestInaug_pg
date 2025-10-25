@@ -30,11 +30,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   padding: 2rem;
   box-sizing: border-box; 
 }
-
 /* Landing Page Specifics */
 .landing-page {
   animation: fadeIn 1s ease-in-out;
@@ -57,6 +56,8 @@ body {
   color: var(--light-text);
   margin-bottom: 3rem;
   text-align: center;
+  opacity: 0; /* Start hidden */
+  animation: fadeInUp 0.8s ease-out 0.6s forwards; /* Staggered animation (after side logos) */
 }
 
 .inaugurate-btn {
@@ -71,6 +72,10 @@ body {
   cursor: pointer;
   overflow: hidden;
   box-shadow: 0 0 15px var(--golden-shine), 0 0 30px rgba(255, 215, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 15px var(--golden-shine), 0 0 30px rgba(255, 215, 0, 0.5);
+  opacity: 0; /* ADD THIS LINE */
+  animation: fadeInUp 0.8s ease-out 0.8s forwards; /* ADD THIS LINE */
   transition: all 0.3s ease-in-out;
 }
 .inaugurate-btn:hover {
@@ -188,7 +193,83 @@ body {
 .revealed-image {
   animation: fadeIn 0.5s ease-out;
 }
+/* Style for the top logo */
+.logo-placeholder-top {
+  width: 260px; 
+  height: 89px; 
+  object-fit: cover;
+  /* margin-bottom is removed, space-evenly will handle it */
+  border-radius: 6px; 
+  opacity: 0; 
+  animation: fadeInUp 0.8s ease-out 0.2s forwards; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Adds a subtle lift */
+}
 
+/* Container for the middle row (left logo, text/button, right logo) */
+.landing-main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1000px; 
+  padding: 2.5rem; /* Add internal padding */
+  box-sizing: border-box;
+  /* This groups the elements into one "panel" */
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Style for the side logos */
+.logo-placeholder-side {
+  width: 180px;
+  height: 67px;
+  object-fit: cover;
+  border-radius: 6px; 
+  opacity: 0; /* Start hidden */
+  animation: fadeInUp 0.8s ease-out 0.4s forwards; /* Staggered animation (after top logo) */
+}
+
+.logo-placeholder-side.left {
+  margin-right: 3rem;
+}
+
+.logo-placeholder-side.right {
+  margin-left: 3rem;
+}
+
+.page-container {
+    justify-content: center; /* Go back to centering on mobile */
+  }
+
+  .landing-main-content {
+    background: none; /* Remove the panel background */
+    border: none; /* Remove the panel border */
+    padding: 0; /* Remove the panel padding */
+  }
+
+  .logo-placeholder-top {
+    box-shadow: none; /* Remove the shadow on mobile */
+  }
+  /* --- New class for the looping top-right GIF --- */
+/* --- New class for the looping overlay GIF --- */
+.looping-gif-overlay {
+  position: fixed; /* Fixes it to the viewport */
+  bottom: 0;       /* Aligns to the bottom */
+  right: -30px;        /* Aligns to the right */
+  width: 500px;    /* You can adjust this size */
+  height: auto;
+  z-index: 1000;   /* Ensures it's on top of everything */
+  
+  /* It will use the existing 'fadeIn' animation */
+  animation: fadeIn 1s ease-out forwards;
+}
+/* Wrapper for the central text and button */
+.landing-text-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 /* --- Keyframes --- */
 @keyframes gifFadeOut {
@@ -209,6 +290,28 @@ body {
 
 /* --- Responsive Design --- */
 @media (max-width: 900px) {
+  /* Responsive Landing Page */
+  .landing-main-content {
+    flex-direction: column;
+  }
+
+  .logo-placeholder-side {
+    display: none; /* Hide side logos on smaller screens */
+  }
+
+/* Style for the top logo */
+.logo-placeholder-top {
+  width: 260px; /* Enlarged from 220px */
+  height: 89px; /* Maintained aspect ratio */
+  object-fit: cover;
+  margin-bottom: 2rem; /* Space below the top logo */
+  margin-top: -1.5rem; /* Moved it up a bit */
+  border-radius: 6px; /* Added border-radius */
+}
+
+  .landing-page .title {
+    font-size: 2rem; /* Smaller title */
+  }
   .main-page-layout {
     flex-direction: column;
     text-align: center;
@@ -232,5 +335,9 @@ body {
   }
   .main-heading {
     font-size: 3rem;
+  }
+  .looping-gif-overlay {
+    width: 100px; /* A bit smaller on mobile */
+    /* bottom: 0 and right: 0 are inherited */
   }
 }

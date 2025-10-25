@@ -3,8 +3,10 @@ import main from '../assets/imgs/main2.jpg';
 import PU from '../assets/imgs/PUlogo.jpg';
 import ieeebg from '../assets/imgs/ieeebang.jpg';
 import ieeelg from '../assets/imgs/ieeelogo.jpg';
-
 import transitionGif from '../assets/imgs/curtain-open.gif'; 
+
+// --- 1. Import your new looping GIF ---
+import loopingAnim from '../assets/r1eaction.gif';
 
 const MainEventPage = () => {
   const [isImageRevealed, setIsImageRevealed] = useState(false);
@@ -20,6 +22,19 @@ const MainEventPage = () => {
 
   return (
     <div className="page-container main-event-page">
+      
+      {/* --- 2. Add the new GIF here --- */}
+      {/* It will only appear AFTER the curtain is done */}
+      {isImageRevealed && (
+       <img 
+            src={loopingAnim} 
+            alt="Looping animation" 
+            className="looping-gif-overlay" 
+          />
+      
+      )}
+
+      {/* --- This is your existing layout --- */}
       <div className="main-page-layout">
         <div className="content-column">
           <img src={PU} alt="PU Logo" className="logo-placeholder" />
